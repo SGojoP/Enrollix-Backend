@@ -30,8 +30,8 @@ router.get("/:token", async (req, res) => {
         await transporter.sendMail({
             from: process.env.EMAIL_USER,
             to: pendingSub.email,
-            subject: `Subscription Confirmation",
-            text: "Congratulations you have been successfully subscribed to our notification service.
+            subject: `Subscription Confirmation`,
+            text: `Congratulations you have been successfully subscribed to our notification service.
             For every notification each of your credits will be used, we provide 4 credits for free. That mean you will get next 4 email notifications for free, in order to get all notification for tenure 2025-26 you have to pay a very nominal fee of ₹99.
             Thank you for subscribing to our service.
 

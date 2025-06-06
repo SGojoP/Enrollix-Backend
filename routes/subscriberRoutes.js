@@ -77,7 +77,7 @@ router.post("/", async (req, res) => {
             // Email subscription requires verification
             const token = crypto.randomBytes(32).toString("hex");
             // const verificationLink = `${process.env.FRONTEND_URL}/#/verify-email?token=${token}`;
-            const verificationLink = `${process.env.FRONTEND_URL}/#/verify-email/${token}`;
+            const verificationLink = `${process.env.FRONTEND_URL}/Verify-email/${token}`;
 
 
 
