@@ -51,6 +51,30 @@ const transporter = nodemailer.createTransport({
     auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
 });
 
+
+const generateVerificationEmail = (name, link) => `
+  <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 24px; border: 1px solid #eee; border-radius: 8px;">
+    <h2 style="color: #2b6cb0;">Welcome to Enrollix, ${name || "Student"}!</h2>
+    <p style="font-size: 16px; color: #333;">
+      Thanks for choosing our MBBS Notification Service. Please confirm your subscription by clicking the button below.
+    </p>
+    <div style="text-align: center; margin: 24px 0;">
+      <a href="${link}" style="background-color: #2b6cb0; color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; display: inline-block;">
+        ✅ Verify Your Email
+      </a>
+    </div>
+    <p style="font-size: 14px; color: #555;">
+      If the button above doesn't work, copy and paste this link into your browser:<br/>
+      <a href="${link}" style="color: #2b6cb0;">${link}</a>
+    </p>
+    <hr style="margin: 24px 0;" />
+    <p style="font-size: 13px; color: #999;">
+      This message was sent by Enrollix Notification System. <br/>
+      Need help? Contact <a href="mailto:enrollix.official@gmail.com" style="color: #999;">support@getenrollix.com</a>
+    </p>
+  </div>
+`
+
 // Subscription route
 router.post("/", async (req, res) => {
     const { emailOrPhone, states, name} = req.body;
@@ -87,11 +111,11 @@ router.post("/", async (req, res) => {
 
             // Send verification email
             await transporter.sendMail({
-                from: process.env.EMAIL_USER,
-                to: emailOrPhone,
-                subject: "Verify Your Subscription",
-                text: `Thankyou for choosing our notification service \n Please click The Link To verify it's you. \n ${verificationLink}`
-            });
+              from: process.env.EMAIL_USER,
+              to: emailOrPhone,
+              subject: "Verify Your Subscription",
+              html: generateVerificationEmail(name, verificationLink)
+            })
 
             return res.json({ message: "Verification email sent. Please check your inbox." });
         } else {
