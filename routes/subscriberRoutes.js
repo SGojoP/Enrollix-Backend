@@ -82,6 +82,16 @@ router.post("/", async (req, res) => {
     if (!emailOrPhone || !states?.length) {
         return res.status(400).json({ error: "Email/Phone and States are required." });
     }
+    
+    // Regex email format check
+    const isValidEmail = (email) => {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+    
+    if (!isValidEmail(emailOrPhone)) {
+      return res.status(400).json({ error: "Please enter a valid email address." });
+    }
+
 
     try {
         if (emailOrPhone.includes("@")) {
