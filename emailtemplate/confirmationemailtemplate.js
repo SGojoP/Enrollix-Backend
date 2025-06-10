@@ -10,7 +10,7 @@ const generateConfirmationEmailHTML = ({ name, freeCredits = 4, price = 499 }) =
     <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
       <!-- Header with logo -->
-      <div style="background-color: #10b981; padding: 20px; text-align: center;">
+      <div style="background-color: #10b981; padding: 10px; text-align: center;">
         <img src="https://res.cloudinary.com/dx2gk4mlj/image/upload/v1749491311/Enrollix-removebg-preview_pcc3nt.png" alt="Enrollix Logo" style="height: 80px;" />
       </div>
 
