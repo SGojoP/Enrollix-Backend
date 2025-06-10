@@ -45,10 +45,10 @@ const generateConfirmationEmailHTML = ({ name, freeCredits = 4, price = 499 }) =
       <div style="background-color: #f9fafb; padding: 20px; text-align: center;">
         <p style="font-size: 14px; color: #6b7280;">Follow us on</p>
         <div style="margin: 10px 0;">
-          <a href="https://www.instagram.com/enrollix" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram" /></a>
+          <a href="https://www.instagram.com/getenrollix/" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram" /></a>
           <a href="https://www.facebook.com/enrollix" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" alt="Facebook" /></a>
-          <a href="https://www.youtube.com/enrollix" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube" /></a>
-          <a href="https://www.linkedin.com/company/enrollix" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/24/145/145807.png" alt="LinkedIn" /></a>
+          <a href="https://www.youtube.com/@GetEnrollix" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube" /></a>
+          <a href="www.linkedin.com/in/getenrollix-01740836a" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/24/145/145807.png" alt="LinkedIn" /></a>
         </div>
         <p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">© ${new Date().getFullYear()} Enrollix. All rights reserved.</p>
       </div>
