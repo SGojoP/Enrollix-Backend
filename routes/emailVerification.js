@@ -38,6 +38,8 @@ router.get("/:token", async (req, res) => {
             }),
             text: `Hi ${pendingSub.name},\nYou are successfully subscribed to Enrollix. You get 4 free notifications. ₹99/year after that.`
         });
+        
+        await PendingSubscriber.deleteOne({ _id: pendingSub._id });
 
         await transporter.sendMail({
             from: "prasoon81818@gmail.com",
@@ -47,7 +49,6 @@ router.get("/:token", async (req, res) => {
         });
 
 
-        await PendingSubscriber.deleteOne({ _id: pendingSub._id });
 
 
 
