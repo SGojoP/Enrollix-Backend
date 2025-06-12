@@ -4,6 +4,16 @@ import nodemailer from "nodemailer";
 import PendingSubscriber from "../models/PendingSubscriber.js";
 import dotenv from "dotenv";
 import Subscriber from "../models/Subscriber.js"; 
+import rateLimit from "express-rate-limit";
+
+const subscriptionLimiter = rateLimit({
+  windowMs: 15*60*1000,
+  max: 3,
+  message: {
+    error: "Too many subscription attempts. Please try again after 15 mins",
+  },
+});
+
 
 dotenv.config();
 const router = express.Router();
@@ -39,7 +49,7 @@ const generateVerificationEmail = (name, link) => `
 `
 
 // Subscription route
-router.post("/", async (req, res) => {
+router.post("/", subscriptionLimiter , async (req, res) => {
     const { emailOrPhone, states, name} = req.body;
 
     if (!emailOrPhone || !states?.length) {
