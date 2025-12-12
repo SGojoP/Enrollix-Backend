@@ -5,6 +5,7 @@ import PendingSubscriber from "../models/PendingSubscriber.js";
 import dotenv from "dotenv";
 import Subscriber from "../models/Subscriber.js"; 
 import rateLimit from "express-rate-limit";
+const app = express();
 
 const subscriptionLimiter = rateLimit({
   windowMs: 30*60*1000,
@@ -14,6 +15,7 @@ const subscriptionLimiter = rateLimit({
   },
 });
 
+app.set('trust proxy', 1);
 
 dotenv.config();
 const router = express.Router();
