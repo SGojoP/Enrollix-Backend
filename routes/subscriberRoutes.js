@@ -7,7 +7,7 @@ import Subscriber from "../models/Subscriber.js";
 import rateLimit from "express-rate-limit";
 
 const subscriptionLimiter = rateLimit({
-  windowMs: 15*60*1000,
+  windowMs: 30*60*1000,
   max: 3,
   message: {
     error: "Too many subscription attempts. Please try again after 15 mins",
