@@ -10,7 +10,7 @@ const subscriptionLimiter = rateLimit({
   windowMs: 30*60*1000,
   max: 3,
   message: {
-    error: "Too many subscription attempts. Please try again after 15 mins",
+    error: "Too many subscription attempts. Please try again after 30 mins",
   },
 });
 
